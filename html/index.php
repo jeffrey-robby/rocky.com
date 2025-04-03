@@ -1,4 +1,5 @@
-
+<?php require_once './ressources/Config.php' 
+?>
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
 
@@ -7,15 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title data-setting="app_name" data-rightJoin=" Book store management system">booksto Book store management
-        system</title>
-    <meta name="description"
-        content="booksto is a revolutionary Bootstrap Admin Dashboard Template and UI Components Library. The Admin Dashboard Template and UI Component features 8 modules.">
-    <meta name="keywords"
-        content="premium, admin, dashboard, template, bootstrap 5, clean ui, booksto, admin dashboard,responsive dashboard, optimized dashboard,">
-    <meta name="author" content="Iqonic Design">
-    <meta name="DC.title" content="booksto Book store management system">
-
-    
+        system</title>       
     <script>
         (function () {
             const savedTheme = sessionStorage.getItem('booksto');

@@ -20,4 +20,4 @@ require 'SessionData.php';
 // <!-- verification de l'utilisateur -->
 isset($_GET['verifyNow'])? include './userverification.php': '';
 // Tous les formulaires
-include './Form.php';
+include 'Form.php';

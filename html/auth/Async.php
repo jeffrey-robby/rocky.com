@@ -15,7 +15,7 @@ $query = mysqli_query($database, "
 if (mysqli_num_rows($query) == 1) {
     // response
     $response = mysqli_fetch_assoc($query);
-    echo $response['id_utilisateurs'];
+    echo base64_encode($response['id_utilisateurs']);
     # code...
 }else {
     echo "false";
