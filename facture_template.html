@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; text-align: center; }
+        .total { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>ETS ROCKY</h1>
+    <p>Ebolowa</p>
+    <p>Date: <span id="date"></span></p>
+    <p>Numéro de facture: <span id="invoice-number"></span></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Désignation</th>
+                <th>Unité</th>
+                <th>Quantité</th>
+                <th>Prix unitaire</th>
+                <th>Prix total</th>
+            </tr>
+        </thead>
+        <tbody id="product-rows">
+            <!-- Les lignes de produit vont ici -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" class="total">Total Général</td>
+                <td id="total-amount" class="total"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        const products = {{products}}; // Les données des produits seront insérées ici
+        let total = 0;
+        const productRows = document.getElementById('product-rows');
+        products.forEach((produit, index) => {
+            const prixTotal = produit.quantity * produit.price;
+            total += prixTotal;
+            productRows.innerHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${produit.nom}</td>
+                    <td>${produit.unite}</td>
+                    <td>${produit.quantity}</td>
+                    <td>${produit.price.toFixed(2)} FCFA</td>
+                    <td>${prixTotal.toFixed(2)} FCFA</td>
+                </tr>
+            `;
+        });
+
+        document.getElementById('total-amount').innerText = total.toFixed(2) + ' FCFA';
+        document.getElementById('date').innerText = new Date().toLocaleDateString();
+        document.getElementById('invoice-number').innerText = '{{invoiceNumber}}'; // Numéro de facture dynamique
+    </script>
+</body>
+</html>
