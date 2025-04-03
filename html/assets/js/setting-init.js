@@ -122,7 +122,7 @@
         return {
           setting: {
             app_name: {
-              value: "Booksto",
+              value: "booksto",
             },
             theme_scheme_direction: {
               value: "ltr",
@@ -182,7 +182,7 @@
         return {
           setting: {
             app_name: {
-              value: "Booksto",
+              value: "booksto",
             },
             theme_scheme_direction: {
               value: "ltr",
@@ -237,7 +237,7 @@
         return {
           setting: {
             app_name: {
-              value: "Booksto",
+              value: "booksto",
             },
             theme_scheme_direction: {
               value: "ltr",

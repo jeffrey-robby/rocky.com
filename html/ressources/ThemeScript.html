@@ -1,0 +1,11 @@
+<script>
+    (function () {
+      const savedTheme = sessionStorage.getItem('booksto');
+
+      if (savedTheme) {
+        const settings = JSON.parse(savedTheme);
+        const themeScheme = settings.setting.theme_scheme.value;
+        document.documentElement.setAttribute('data-bs-theme', themeScheme);
+      }
+    })();
+  </script>

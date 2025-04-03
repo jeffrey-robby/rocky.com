@@ -1,6 +1,6 @@
 /*
 * Version: 1.3.0
-* Template: Booksto Clinic And Patient Management Dashboard
+* Template: booksto Clinic And Patient Management Dashboard
 * Author: iqonic.design
 * Design and Developed by: iqonic.design
 * NOTE: This file contains the script for initialize & listener Template.
