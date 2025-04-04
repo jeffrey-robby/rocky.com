@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title data-setting="app_name" data-rightJoin=" Librairy Management Dashboard">booksto: sign-in</title>
+  <title data-setting="app_name" data-rightJoin=" Librairy Management Dashboard">Rocky: sign-in</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="../assets/images/logo-mini.png" />
   
