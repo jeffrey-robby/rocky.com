@@ -190,7 +190,7 @@
                               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               <div class="icon-50">
                                  <span class="btn-inner d-inline-block position-relative">
-                                    <img src="assets/images/avatars/1.jpg"
+                                    <img src="../assets/images/personnels/photos/<?php echo $response['image_personnels'] ?>"
                                        class="img-fluid rounded-circle object-fit-cover avatar-50" alt="icon">
                                     <span
                                        class="bg-success p-1 rounded-circle position-absolute end-0 bottom-0 border border-3 border-white"></span>
@@ -206,12 +206,12 @@
                               <div class="m-0 card-shadow card">
                                  <div class="py-3 card-header rounded-top-3 bg-primary mb-0">
                                     <div class="header-title">
-                                       <h5 class="mb-0 text-white">Hello Barry Tech</h5>
+                                       <h5 class="mb-0 text-white">Hello <?php echo $response['nom_personnels'] ?></h5>
                                        <span class="text-white ">Available</span>
                                     </div>
                                  </div>
                                  <div class="p-0 card-body ">
-                                    <a class="iq-sub-card" href="user/user-profile.html">
+                                    <a class="iq-sub-card" href="user/user-profile.php">
                                        <div class="d-flex align-items-center">
                                           <div
                                              class="avatar-40 rounded-pill bg-primary-subtle text-primary  d-flex align-items-center justify-content-center ">
@@ -224,7 +224,7 @@
             
                                        </div>
                                     </a>
-                                    <a class="iq-sub-card" href="user/user-edit.html">
+                                    <a class="iq-sub-card" href="user/user-edit.php">
                                        <div class="d-flex align-items-center">
                                           <div
                                              class="avatar-40 rounded-pill bg-primary-subtle text-primary  d-flex align-items-center justify-content-center">
@@ -237,7 +237,7 @@
             
                                        </div>
                                     </a>
-                                    <a class="iq-sub-card" href="user/user-account-setting.html">
+                                    <a class="iq-sub-card" href="user/user-account-setting.php">
                                        <div class="d-flex align-items-center">
                                           <div
                                              class="avatar-40 rounded-pill bg-primary-subtle text-primary  d-flex align-items-center justify-content-center ">
@@ -250,7 +250,7 @@
             
                                        </div>
                                     </a>
-                                    <a class="iq-sub-card" href="user/user-privacy-setting.html">
+                                    <a class="iq-sub-card" href="user/user-privacy-setting.php">
                                        <div class="d-flex align-items-center">
                                           <div
                                              class="avatar-40 rounded-pill bg-primary-subtle text-primary  d-flex align-items-center justify-content-center">
@@ -263,7 +263,7 @@
                                        </div>
                                     </a>
                                     <div class=" p-3 d-flex justify-content-center align-items-center">
-                                       <a class="btn btn-primary d-flex align-items-center gap-1" href="auth/sign-in.html"
+                                       <a class="btn btn-primary d-flex align-items-center gap-1" href="../html/auth/sign_in.php?ktsp="
                                           role="button">Sign out <i class="ph ph-sign-out"></i></a>
                                     </div>
                                  </div>

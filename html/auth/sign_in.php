@@ -1,5 +1,5 @@
 
-<?php require_once './LogSettings.php';
+<?php require './LogSettings.php';
 
 ?>
 <!doctype html>

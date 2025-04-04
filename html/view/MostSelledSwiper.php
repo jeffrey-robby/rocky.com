@@ -21,7 +21,7 @@
                                                 <img src="assets/images/favorite/01.jpg" class="img-fluid rounded w-100" alt="" />
                                             </a>
                                         </div>
-                                        <div class="col-6 px-3">
+                                        <div class="col-12 px-3">
                                             <h4 class="mb-1 line-clip-2">Every Book is a new Wonderful Travel..</h4>
                                             <a class=" mb-1 line-clip-1">Author : Pedro Araez</a>
                             
@@ -53,7 +53,7 @@
                                                 <img src="assets/images/favorite/02.jpg" class="img-fluid rounded w-100" alt="" />
                                             </a>
                                         </div>
-                                        <div class="col-6 px-3">
+                                        <div class="col-12 px-3">
                                             <h4 class="mb-1 line-clip-2">Casey Christie night book into find...</h4>
                                             <a class=" mb-1 line-clip-1">Author : Michael klock</a>
                             
@@ -85,7 +85,7 @@
                                                 <img src="assets/images/favorite/03.jpg" class="img-fluid rounded w-100" alt="" />
                                             </a>
                                         </div>
-                                        <div class="col-6 px-3">
+                                        <div class="col-12 px-3">
                                             <h4 class="mb-1 line-clip-2">The Secret to English Busy People..</h4>
                                             <a class=" mb-1 line-clip-1">Author : Daniel Ace</a>
                             
@@ -117,7 +117,7 @@
                                                 <img src="assets/images/favorite/04.jpg" class="img-fluid rounded w-100" alt="" />
                                             </a>
                                         </div>
-                                        <div class="col-6 px-3">
+                                        <div class="col-12 px-3">
                                             <h4 class="mb-1 line-clip-2">The adventures of Robins books...</h4>
                                             <a class=" mb-1 line-clip-1">Author : Luka Afton</a>
                             
