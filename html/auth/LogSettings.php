@@ -14,6 +14,7 @@ unset($_COOKIE['user_cookie']);
 
 //Si un cookie existe deja, rediriger vers la page d'acceuille
 if (isset($_COOKIE['user_cookie'])) {
-header("Location: ../");
+header("Location: ../shop/produits.php");
+exit();
 
 }

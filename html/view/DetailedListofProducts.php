@@ -1,9 +1,5 @@
 <div class="card">
-    <div class="card-header d-flex justify-content-between">
-    <div class="header-title">
-        <!-- <h4 class="card-title">Liste Des Produits</h4> -->
-    </div>
-    </div>
+   
     <div class="card-body">
     <ul class="nav nav-tabs justify-content-end" id="myTab-4" role="tablist">
         <li class="nav-item">
@@ -58,10 +54,10 @@
                             <div class="d-flex align-items-center">
                                 <div class="col-6  position-relative p-0 img-shadow ">
                                     <a href="javascript:void();" tabindex="-1" class="">
-                                        <img src="'.$result['photo_produits1'].'" class="img-fluid rounded w-100" alt="" />
+                                        <img src="../'.$result['photo_produits1'].'" class="img-fluid rounded w-100" alt="" />
                                     </a>
                                     <div class="view-book">
-                                        <a href="shop/book-page.php?product='.$result['id_produits'].'" class="btn view-book-btn">Afficher</a>
+                                        <a href="../shop/book-page.php?product='.$result['id_produits'].'" class="btn view-book-btn">Afficher</a>
                                     </div>
                                 </div>
                                 <div class="col-6 px-3">

@@ -6,7 +6,7 @@
         while ($result = mysqli_fetch_assoc($request)) {
             echo '
                 <div class="swiper-slide">
-                    <img title="'.$result['description_produits'].'" class="img-fluid w-100 rounded" src="'.$result['photo_produits1'].'" alt="image" />
+                    <img title="'.$result['description_produits'].'" class="img-fluid w-100 rounded" src="../'.$result['photo_produits1'].'" alt="image" />
                 </div>
             ';
             # code...

@@ -190,7 +190,7 @@
                               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               <div class="icon-50">
                                  <span class="btn-inner d-inline-block position-relative">
-                                    <img src="../assets/images/personnels/photos/<?php echo $response['image_personnels'] ?>"
+                                    <img src="../<?php echo $response['image_personnels'] ?>"
                                        class="img-fluid rounded-circle object-fit-cover avatar-50" alt="icon">
                                     <span
                                        class="bg-success p-1 rounded-circle position-absolute end-0 bottom-0 border border-3 border-white"></span>
