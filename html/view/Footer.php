@@ -1,31 +1,85 @@
 <form action="" method="post">
+  <div class="modal fade addCat" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter une catégorie</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group input-group mb-0 search-input category-search-input">
+                <span class="input-group-text  ps-3 pe-0 border-0">
+                    <i class="ph ph-magnifying-glass"></i>
+                </span>
+                <input type="text" name="catName" class="form-control border-0" required placeholder="Ajouter une categorie...">
 
-<div class="modal fade addCat" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Ajouter une catégorie</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="form-group input-group mb-0 search-input category-search-input">
-              <span class="input-group-text  ps-3 pe-0 border-0">
-                  <i class="ph ph-magnifying-glass"></i>
-              </span>
-              <input type="text" name="catName" class="form-control border-0" required placeholder="Ajouter une categorie...">
-
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-        <button type="submit" name="AddCat" class="btn btn-success">Ajouter</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="submit" name="AddCat" class="btn btn-success">Ajouter</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
 
-</form>      
+  <div class="modal fade addFour" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter un Fournisseur</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+        <div class="card-body">
+               <form class="row g-3 needs-validation" method="post" novalidate>
+                  <div class="col-md-6 position-relative">
+                     <label for="validationTooltip01" class="form-label">Nom</label>
+                     <input type="text" name="nom" class="form-control" id="validationTooltip01" value="Fournisseur 1" required>
+                     <div class="valid-tooltip">
+                        Bon!
+                     </div>
+                  </div>
+                  <div class="col-md-6 position-relative">
+                     <label for="validationTooltip02" class="form-label">Contact</label>
+                     <input type="tel" name="tel" class="form-control" id="validationTooltip02" min="9" placeholder="+237..." required>
+                     <div class="invalid-tooltip">
+                        Numéro Incorrecte!
+                     </div>
+                  </div>
+                  <div class="col-md-6 position-relative">
+                     <label for="validationTooltipUsername" class="form-label">Adresse</label>
+                     <div class="input-group has-validation">
+                        <span class="input-group-text pt-1" id="validationTooltipUsernamePrepend">@</span>
+                        <input type="text" name="adresse" class="form-control" id="validationTooltipUsername"
+                           aria-describedby="validationTooltipUsernamePrepend" required placeholder="Adresse">
+                        <div class="invalid-tooltip">
+                          Entrer cette information!
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="col-12">
+                     <button name="AddFour" class="btn btn-primary mt-5" type="submit">Ajouter</button>
+                  </div>
+               </form>
+            </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
 
         <!-- <footer class="footer">
           <div class="footer-body">
