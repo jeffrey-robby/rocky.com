@@ -19,7 +19,7 @@
         <div class="tab-content" id="myTabContent-5">
           <div class="tab-pane fade show active" id="home-end" role="tabpanel" aria-labelledby="home-tab-end">
           <div class="card rounded-3">          
-            <div class="p-5 row gy-5">               
+            <div class="p-5 row gy-5" style="overflow: auto;">               
                 <?php 
                     $request = mysqli_query($database, "
                                     SELECT 

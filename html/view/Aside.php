@@ -73,7 +73,7 @@
                                 <a
                                     class="nav-link "
                                     aria-current="page"
-                                    href="shop/category-page.html">
+                                    href="shop/category-page.php">
                                     <i class="icon" data-bs-toggle="tooltip"
                                         title="Category Page" data-bs-placement="right">
                                         <i class="ph-duotone ph-squares-four"></i>
@@ -81,9 +81,10 @@
                                     <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
                                         title="Category Page"
                                         data-bs-placement="right">CP</i>
-                                    <span class="item-name">Category Page</span>
+                                    <span class="item-name">Categories Produits</span>
                                 </a>
-                            </li>
+                            </li>                           
+                            
                             <li class="nav-item">
                                 <a
                                     class="nav-link "
@@ -96,7 +97,7 @@
                                     <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
                                         title="Book Pages"
                                         data-bs-placement="right">BP</i>
-                                    <span class="item-name">Book Page</span>
+                                    <span class="item-name">Produits</span>
                                 </a>
                             </li>
                             <li class="nav-item">
