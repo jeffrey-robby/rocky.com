@@ -1,4 +1,5 @@
-<?php require_once './ressources/Config.php' 
+<?php
+require_once './ressources/Config.php' 
 ?>
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">

@@ -1,4 +1,5 @@
-<?php require_once '../ressources/Config.php' 
+<?php 
+require_once '../ressources/Config.php' 
 ?>
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
@@ -90,94 +91,255 @@
             <?php include '../view/Nav.php' ?>
             <!--Nav End-->
         </div>
-        <div class="content-inner container-fluid pb-0" id="page_layout">
+        <div class="content-inner container-fluid pb-0" id="page_layout">            
             <div class="row">
                 <div class="d-block text-center">
                     <h2 class="mb-3">Catégories Produits</h2>
-                    <div class="d-flex flex-column flex-lg-row align-items-center gap-3 custom-search mb-lg-5 mx-0 mx-md-auto">                       
-                        <div class="d-flex align-items-center w-50 search-bar-width mb-5 mb-lg-0 mx-md-auto">                           
-                            <div class="d-block w-75">
-                                <form action="" method="post">
-                                        <div class="form-group input-group mb-0 search-input category-search-input">
-                                            <span class="input-group-text  ps-3 pe-0 border-0">
-                                                <i class="ph ph-magnifying-glass"></i>
-                                            </span>
-                                            <input type="text" class="form-control border-0" required placeholder="Ajouter une categorie...">
-
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary search-data ms-2">Ajouter</button>
-                                </form>                                
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            <div class="header-title">
-                            <h4 class="card-title">Tabs Vertical Pills</h4>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <p>Stack your navigation by changing the flex item direction with
-                            the
-                            <code>.flex-column</code>
-                            utility.
-                            </p>
+                        
+                        <div class="card-body">                         
                             <div class="row">
-                            <div class="col-sm-3">
-                                <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="button"
-                                aria-orientation="vertical">
-                                <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
-                                    role="tab" aria-selected="true">Home</a>
-                                <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
-                                    role="tab" aria-selected="false">Profile</a>
-                                <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target=""="#v-pills-messages"
-                                    role="tab" aria-selected="false">Messages</a>
-                                <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab"
-                                    aria-selected="false">Settings</a>
+                                <div class="col-sm-3">
+                                    <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="button"
+                                    aria-orientation="vertical">
+                                    <?php 
+                                    $request = mysqli_query($database, "
+                                        SELECT * FROM categorie_produits WHERE 1 ORDER BY nom_categorie_produits
+                                    ");
+                                    while ($result = mysqli_fetch_assoc($request)) {
+                                        ?>
+                                        <a class="nav-link" id="<?php echo $result['id_categorie_produits'] ?>" data-bs-toggle="pill" data-bs-target="#v-pills-<?php echo $result['id_categorie_produits'] ?>"
+                                        role="tab" aria-selected="false"><?php echo $result['nom_categorie_produits'] ?></a>
+                                    <?php
+                                        # code...
+                                    }
+                                    ?>
+                                
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="tab-content mt-0" id="v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                                    aria-labelledby="v-pills-home-tab">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and
-                                    scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.</p>
+                                <div class="col-sm-9">
+                                    <div class="tab-content mt-0" id="v-pills-tabContent">
+                                    <?php 
+                                    $request = mysqli_query($database, "
+                                        SELECT * FROM categorie_produits WHERE 1 ORDER BY nom_categorie_produits
+                                    ");
+                                    while ($result = mysqli_fetch_assoc($request)) {
+                                        $idCategorie = $result['id_categorie_produits'];
+                                        ?>
+                                        <div class="tab-pane fade" id="v-pills-<?php echo $result['id_categorie_produits'] ?>" role="tabpanel"
+                                            aria-labelledby="v-pills-<?php echo $result['id_categorie_produits'] ?>-tab">                                        
+
+                                            <div class="card">
+                                            
+                                                <div class="card-body">
+                                                    <ul class="nav nav-tabs justify-content-end" id="myTab-4" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="<?php echo $result['id_categorie_produits'] ?>-tab-end" data-bs-toggle="tab" href="#<?php echo $result['id_categorie_produits'] ?>-end" role="tab"
+                                                        aria-selected="true">Grille</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="<?php echo $result['id_categorie_produits'].$result['id_categorie_produits'] ?>-tab-end" data-bs-toggle="tab" href="#<?php echo $result['id_categorie_produits'].$result['id_categorie_produits'] ?>-end" role="tab"
+                                                        aria-selected="false">Tableau</a>
+                                                    </li>          
+                                                    </ul>
+                                                    <div class="tab-content" id="myTabContent-5">
+                                                        <div class="tab-pane fade show active" id="<?php echo $result['id_categorie_produits'] ?>-end" role="tabpanel" aria-labelledby="<?php echo $result['id_categorie_produits'] ?>-tab-end">                                                        
+
+                                                            <div class="p-5 row gy-5" style="overflow: auto;">               
+                                                                <?php 
+                                                                    $rq = mysqli_query($database, "
+                                                                                    SELECT 
+                                                                                    produits.id_produits,
+                                                                                    produits.id_fournisseurs, 
+                                                                                    fournisseurs.nom_fournisseurs, 
+                                                                                    fournisseurs.tel_fournisseurs, 
+                                                                                    produits.id_categorie_produits, 
+                                                                                    categorie_produits.nom_categorie_produits, 
+                                                                                    produits.nom_produits, 
+                                                                                    produits.unite_produits,
+                                                                                    produits.prix_produits, 
+                                                                                    produits.prix_produits1,
+                                                                                    produits.photo_produits1, 
+                                                                                    produits.description_produits, 
+                                                                                    quantite_en_stocks.quantite_quantite_en_stocks,
+                                                                                    quantite_en_stocks.seuil_quantite_en_stocks,
+                                                                                    stocks.nom_stocks 
+                                                                                FROM 
+                                                                                    produits, fournisseurs, categorie_produits, quantite_en_stocks, stocks
+                                                                                WHERE
+                                                                                    produits.id_fournisseurs = fournisseurs.id_fournisseurs
+                                                                                AND
+                                                                                    produits.id_categorie_produits = '$idCategorie'
+                                                                                AND
+                                                                                    produits.id_categorie_produits = categorie_produits.id_categorie_produits
+                                                                                AND
+                                                                                    produits.id_produits = quantite_en_stocks.id_produits
+                                                                                AND
+                                                                                    quantite_en_stocks.id_stocks = stocks.id_stocks
+                                                                                AND
+                                                                                    produits.id_fournisseurs = fournisseurs.id_fournisseurs                                                                                                                                                     
+                                                                                ORDER BY produits.nom_produits
+                                                                                ");
+                                                                    while ($r = mysqli_fetch_assoc($rq)) {
+                                                                        echo '
+                                                                            <div class="col-sm-6 col-md-4 col-lg-4">
+                                                                                <div class=" browse-bookcontent">
+                                                                                    <div class=" p-0">
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <div class="col-6  position-relative p-0 img-shadow ">
+                                                                                        <a href="javascript:void();" tabindex="-1" class="">
+                                                                                            <img src="../'.$r['photo_produits1'].'" class="img-fluid rounded w-100" alt="" />
+                                                                                        </a>
+                                                                                        <div class="view-book">
+                                                                                            <a href="shop/book-page.php?product='.$r['id_produits'].'" class="btn view-book-btn">Afficher</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-6 px-3">
+                                                                                        <h4 class="mb-1 line-clip-2">'.$r['nom_produits'].'
+                                                                                            World</h4>
+                                                                                        <a class=" mb-1 line-clip-1" onclick="alert(\'Contact du fournisseur: '.$r['tel_fournisseurs'].' \')">'.$r['nom_fournisseurs'].'</a>
+
+
+                                                                                        <div class="d-block line-height font-size-19">
+                                                                                            <span class=" text-warning">
+                                                                                                <i class="ph-fill ph-star"></i>
+                                                                                                <i class="ph-fill ph-star"></i>
+                                                                                                <i class="ph-fill ph-star"></i>
+                                                                                                <i class="ph-fill ph-star"></i>
+                                                                                                <i class="ph-fill ph-star"></i>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                        <div class="price d-flex align-items-center mb-2">
+                                                                                            <span class="pe-1 "><del>'.$r['prix_produits'].'</del></span>
+                                                                                            <h6 class="mb-0"><b>$'.$r['prix_produits1'].'</b></h6>
+                                                                                        </div>
+                                                                                        <div class="iq-product-action">
+                                                                                            <a href="javascript:void();" class="btn btn-small-icon fs-1 cart-btn bg-primary-subtle">
+                                                                                                <i class=" ri-shopping-cart-2-fill text-primary fs-5"></i></a>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                </div>
+                                                                                </div>
+                                                                            </div>  
+                                                                        ';
+                                                                        # code...
+                                                                    }
+                                                                ?>                                
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane fade" id="<?php echo $result['id_categorie_produits'].$result['id_categorie_produits'] ?>-end" role="tabpanel" aria-labelledby="<?php echo $result['id_categorie_produits'].$result['id_categorie_produits'] ?>-tab-end">
+
+                                                            <div class="table-responsive custom-table-search">
+                                                                <table id="input-datatable" class="table" data-toggle="data-table-column-filter">
+                                                                    <thead>
+                                                                        <tr>
+                                                                        <th>Nom</th>
+                                                                        <th>Prix</th>
+                                                                        <th>Prix2</th>
+                                                                        <th>Quantité En stock</th>
+                                                                        <th>Description</th>
+                                                                        <th>Fournisseur</th>
+                                                                        <th>Contact</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <?php 
+                                                                        $rq = mysqli_query($database, "
+                                                                        SELECT 
+                                                                        produits.id_produits,
+                                                                        produits.id_fournisseurs, 
+                                                                        fournisseurs.nom_fournisseurs, 
+                                                                        fournisseurs.tel_fournisseurs, 
+                                                                        produits.id_categorie_produits, 
+                                                                        categorie_produits.nom_categorie_produits, 
+                                                                        produits.nom_produits, 
+                                                                        produits.unite_produits,
+                                                                        produits.prix_produits, 
+                                                                        produits.prix_produits1,
+                                                                        produits.photo_produits1, 
+                                                                        produits.description_produits, 
+                                                                        quantite_en_stocks.quantite_quantite_en_stocks,
+                                                                        quantite_en_stocks.seuil_quantite_en_stocks,
+                                                                        stocks.nom_stocks 
+                                                                    FROM 
+                                                                        produits, fournisseurs, categorie_produits, quantite_en_stocks, stocks
+                                                                    WHERE
+                                                                        produits.id_fournisseurs = fournisseurs.id_fournisseurs
+                                                                    AND
+                                                                        produits.id_categorie_produits = '$idCategorie'
+                                                                    AND
+                                                                        produits.id_categorie_produits = categorie_produits.id_categorie_produits
+                                                                    AND
+                                                                        produits.id_produits = quantite_en_stocks.id_produits
+                                                                    AND
+                                                                        quantite_en_stocks.id_stocks = stocks.id_stocks
+                                                                    AND
+                                                                        produits.id_fournisseurs = fournisseurs.id_fournisseurs                                                                                                                                                     
+                                                                    ORDER BY produits.nom_produits
+                                                                    ");
+                                                                    while ($r2 = mysqli_fetch_assoc($rq)) {
+                                                                        echo'
+                                                                        <tr>
+                                                                            <td>'.$r2['nom_produits'].'</td>
+                                                                            <td>'.$r2['prix_produits'].'</td>
+                                                                            <td>'.$r2['prix_produits1'].'</td>
+                                                                            ';
+
+                                                                            if ($r2['quantite_quantite_en_stocks'] <= $r2['seuil_quantite_en_stocks']) {
+                                                                                echo '
+                                                                                <td style="background: rgb(249 186 186 / 93%)">'.$r2['quantite_quantite_en_stocks'].'</td>
+                                                                                ';
+                                                                                # code...
+                                                                            }else {
+                                                                                echo '
+                                                                                <td>'.$r2['quantite_quantite_en_stocks'].'</td>
+                                                                                ';
+                                                                            }
+                                                                            echo '
+                                                                            <td>'.$r2['description_produits'].'</td>
+                                                                            <td>'.$r2['nom_fournisseurs'].'</td>
+                                                                            <td>'.$r2['tel_fournisseurs'].'</td>
+                                                                        </tr>
+                                                                        ';
+                                                                        # code...
+                                                                    }
+                                                                    ?>
+                                                                        
+                                                                        
+                                                                    </tbody>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                        <th title="Nom">Nom</th>
+                                                                        <th title="Prix">Prix</th>
+                                                                        <th title="Prix2">Prix2</th>
+                                                                        <td title="Quantité En stock">Quantité En stock</td>
+                                                                        <th title="Description">Description</th>
+                                                                        <th title="Fournisseur">Fournisseur</th>
+                                                                        <th title="Contact">Contact</th>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                </table>
+                                                            </div>
+
+
+                                                        </div>
+                                                
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>   
+                                        
+                                    <?php
+                                        # code...
+                                    }
+                                    ?>
+                                                                    
+                                    </div>
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and
-                                    scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.</p>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and
-                                    scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.</p>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. Lorem Ipsum has been the
-                                    industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and
-                                    scrambled it to make a type specimen book. It has
-                                    survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged.</p>
-                                </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                         </div>                                

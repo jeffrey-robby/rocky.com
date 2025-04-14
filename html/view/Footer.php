@@ -1,4 +1,33 @@
-<footer class="footer">
+<form action="" method="post">
+
+<div class="modal fade addCat" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter une catégorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group input-group mb-0 search-input category-search-input">
+              <span class="input-group-text  ps-3 pe-0 border-0">
+                  <i class="ph ph-magnifying-glass"></i>
+              </span>
+              <input type="text" name="catName" class="form-control border-0" required placeholder="Ajouter une categorie...">
+
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="submit" name="AddCat" class="btn btn-success">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>      
+
+        <!-- <footer class="footer">
           <div class="footer-body">
             <ul class="left-panel list-inline mb-0 p-0">
               <li class="list-inline-item fw-500"><a class="footer-link" href="extra-pages/privacy-policy.html">Privacy
@@ -22,4 +51,4 @@
               <a href="#" target="_parent">Luci</a>.
             </h6>
           </div>
-        </footer>
+        </footer> -->
