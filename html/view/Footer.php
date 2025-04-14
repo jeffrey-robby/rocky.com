@@ -25,53 +25,234 @@
   </div>
 </form>
 
-  <div class="modal fade addFour" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+<div class="modal fade addFour" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter un Fournisseur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="card-body">
+              <form class="row g-3 needs-validation" method="post" novalidate>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltip01" class="form-label">Nom</label>
+                    <input type="text" name="nom" class="form-control" id="validationTooltip01" value="Fournisseur 1" required>
+                    <div class="valid-tooltip">
+                      Bon!
+                    </div>
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltip02" class="form-label">Contact</label>
+                    <input type="tel" name="tel" class="form-control" id="validationTooltip02" min="9" placeholder="+237..." required>
+                    <div class="invalid-tooltip">
+                      Numéro Incorrecte!
+                    </div>
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltipUsername" class="form-label">Adresse</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text pt-1" id="validationTooltipUsernamePrepend">@</span>
+                      <input type="text" name="adresse" class="form-control" id="validationTooltipUsername"
+                          aria-describedby="validationTooltipUsernamePrepend" required placeholder="Adresse">
+                      <div class="invalid-tooltip">
+                        Entrer cette information!
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <button name="AddFour" class="btn btn-primary mt-5" type="submit">Ajouter</button>
+                </div>
+              </form>
+          </div>
+      </div>        
+    </div>
+  </div>
+</div>
+
+<form action="" method="post">
+  <div class="modal fade addStock" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ajouter un Fournisseur</h5>
+          <h5 class="modal-title">Ajouter un Stockage</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
           </button>
         </div>
         <div class="modal-body">
-        <div class="card-body">
-               <form class="row g-3 needs-validation" method="post" novalidate>
-                  <div class="col-md-6 position-relative">
-                     <label for="validationTooltip01" class="form-label">Nom</label>
-                     <input type="text" name="nom" class="form-control" id="validationTooltip01" value="Fournisseur 1" required>
-                     <div class="valid-tooltip">
-                        Bon!
-                     </div>
-                  </div>
-                  <div class="col-md-6 position-relative">
-                     <label for="validationTooltip02" class="form-label">Contact</label>
-                     <input type="tel" name="tel" class="form-control" id="validationTooltip02" min="9" placeholder="+237..." required>
-                     <div class="invalid-tooltip">
-                        Numéro Incorrecte!
-                     </div>
-                  </div>
-                  <div class="col-md-6 position-relative">
-                     <label for="validationTooltipUsername" class="form-label">Adresse</label>
-                     <div class="input-group has-validation">
-                        <span class="input-group-text pt-1" id="validationTooltipUsernamePrepend">@</span>
-                        <input type="text" name="adresse" class="form-control" id="validationTooltipUsername"
-                           aria-describedby="validationTooltipUsernamePrepend" required placeholder="Adresse">
-                        <div class="invalid-tooltip">
-                          Entrer cette information!
-                        </div>
-                     </div>
-                  </div>
-                  
-                  <div class="col-12">
-                     <button name="AddFour" class="btn btn-primary mt-5" type="submit">Ajouter</button>
-                  </div>
-               </form>
+            <div class="form-group input-group mb-0 search-input category-search-input">
+                <span class="input-group-text  ps-3 pe-0 border-0">
+                    <i class="ph ph-magnifying-glass"></i>
+                </span>
+                <input type="text" name="catStock" class="form-control border-0" required placeholder="Ajouter un stock">
+
             </div>
-        </div>        
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="submit" name="AddStock" class="btn btn-success">Ajouter</button>
+        </div>
       </div>
     </div>
   </div>
+</form>
 
+
+
+
+<div class="modal fade addProd" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter un Produit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="card-body">
+          <form class="row g-3 needs-validation" method="post" enctype="multipart/form-data" novalidate >
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip01" class="form-label">Nom du Produit</label>
+                <input type="text" name="nom" class="form-control" id="validationTooltip01" value="Prod 1" required>
+                <div class="valid-tooltip">
+                  Bon!
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip014" class="form-label">Quantité</label>
+                <input type="number" name="Qt" class="form-control" id="validationTooltip014" min="1" required>
+                <div class="invalid-tooltip">
+                  Invalide!
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip02" class="form-label">Image Recto</label>
+                <input type="file" name="ProdFile" class="form-control" id="validationTooltip02" required>
+                <div class="invalid-tooltip">
+                  Image manquante!
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip022" class="form-label">Image Verso</label>
+                <input type="file" name="ProdFile2" class="form-control" id="validationTooltip022" required>
+                <div class="invalid-tooltip">
+                  Image manquante!
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltipUsername12" class="form-label">Prix de détail</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text pt-1" id="validationTooltipUsername12Prepend">cfa</span>
+                  <input type="number" name="PrixD" min="1" class="form-control" id="validationTooltipUsername12"
+                      aria-describedby="validationTooltipUsername12Prepend" require>
+                  <div class="invalid-tooltip">
+                    Entrer un prix!
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltipUsername2" class="form-label">Prix de Gros</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text pt-1" id="validationTooltipUsername2Prepend">cfa</span>
+                  <input type="number" name="PrixG" min="1" class="form-control" id="validationTooltipUsername2"
+                      aria-describedby="validationTooltipUsername2Prepend" require>
+                  <div class="invalid-tooltip">
+                    Entrer un prix!
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltipUsername124" class="form-label">Seuil Critique</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text pt-1" id="validationTooltipUsername124Prepend">.</span>
+                  <input type="number" name="Scr" min="1" class="form-control" id="validationTooltipUsername124"
+                      aria-describedby="validationTooltipUsername124Prepend" require>
+                  <div class="invalid-tooltip">
+                  Non Valide!
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltipUsername33" class="form-label">Description du Produit</label>
+                <div class="input-group">
+                  <input type="text" name="Desc" class="form-control" id="validationTooltipUsername33"
+                      aria-describedby="validationTooltipUsername33Prepend" required>
+                  <div class="invalid-tooltip">
+                  Dites en Plus!
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip0224447" class="form-label">Catégorie</label>
+                <select name="unit" id="" class="form-control" required>               
+                  <option value="Paquet">Paquet</option>
+                  <option value="Carton">Carton</option>
+                  <option value="Piece">Piece</option>
+                  <option value="Boite">Boite</option>
+                  <option value="Cartouche">Cartouche</option>
+                </select> 
+                <div class="invalid-tooltip">
+                  Non Valide!
+                  </div>               
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip0224447" class="form-label">Catégorie</label>
+                <select name="Stock" id="" class="form-control" required>               
+                  
+                </select> 
+                <div class="invalid-tooltip">
+                  Non Valide!
+                  </div>               
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip022" class="form-label">Fournisseur</label>
+                <select name="Four" id="" class="form-control" required>
+                  <?php 
+                  $request = mysqli_query($database, "SELECT * FROM fournisseurs ");
+                  while ($result = mysqli_fetch_assoc($request)) {
+                    echo '
+                     <option value="'.$result['id_fournisseurs'].'">'.$result['nom_fournisseurs'].'</option>
+                    ';
+                    # code...
+                  }
+                  ?>
+                 
+                </select>
+                <div class="invalid-tooltip">
+                  Non Valide!
+                  </div>              
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip02244" class="form-label">Catégorie</label>
+                <select name="Cat" id="" class="form-control" required>
+                <?php 
+                  $request = mysqli_query($database, "SELECT * FROM categorie_produits ");
+                  while ($result = mysqli_fetch_assoc($request)) {
+                    echo '
+                     <option value="'.$result['id_categorie_produits'].'">'.$result['nom_categorie_produits'].'</option>
+                    ';
+                    # code...
+                  }
+                  ?>
+                  <option value=""></option>
+                </select> 
+                <div class="invalid-tooltip">
+                  Non Valide!
+                  </div>               
+            </div>
+            
+            
+            <div class="col-12">
+                <button name="AddProd" class="btn btn-primary mt-5" type="submit">Ajouter</button>
+            </div>
+          </form>
+        </div>
+      </div>        
+    </div>
+  </div>
+</div>
 
 
 

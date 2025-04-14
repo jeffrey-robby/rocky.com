@@ -180,6 +180,61 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#menustock"
+                                    role="button" aria-expanded="false">
+                                    <i class="icon" data-bs-toggle="tooltip" title="Menu Level"
+                                        data-bs-placement="right">
+                                        <i class="ph-duotone ph-text-indent"></i>
+                                    </i>
+                                    <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
+                                        title="Menu Level" data-bs-placement="right">
+                                        <i class="ph-duotone ph-text-indent"></i>
+                                    </i>
+                                    <span class="item-name">Lieux de Stockage</span>
+                                    <i class="right-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                            class="icon-18" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </i>
+                                </a>
+                                <ul class="sub-nav collapse" id="menustock">
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link "
+                                            aria-current="page" href="#">
+                                            <i class="icon" data-bs-toggle="tooltip" title="Menu 1"
+                                                data-bs-placement="right">
+                                                <i class="ph-duotone ph-list"></i>
+                                            </i>
+                        
+                                            <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
+                                                title="Menu 1" data-bs-placement="right">AJ</i>
+                                            <span class="item-name" data-bs-toggle="modal"
+                                            data-bs-target=".addStock">Ajouter</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item iq-drop">
+                                        <a
+                                            class="nav-link "
+                                            aria-current="page" href="../shop/stock.php">
+                                            <i class="icon" data-bs-toggle="tooltip" title="Liste des Categories"
+                                                data-bs-placement="right">
+                                                <i class="ph-duotone ph-list"></i>
+                                            </i>
+                        
+                                            <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
+                                                title="Menu 2" data-bs-placement="right">AF</i>
+                                            <span class="item-name">Afficher</span>
+                                        </a>
+                                        
+                                    </li>                           
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#menuproduit"
                                     role="button" aria-expanded="false">
                                     <i class="icon" data-bs-toggle="tooltip" title="Menu Level"
@@ -213,7 +268,7 @@
                                             <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
                                                 title="Menu 1" data-bs-placement="right">AJ</i>
                                             <span class="item-name" data-bs-toggle="modal"
-                                            data-bs-target=".addCat">Ajouter</span>
+                                            data-bs-target=".addProd">Ajouter</span>
                                         </a>
                                     </li>
                                     <li class="nav-item iq-drop">

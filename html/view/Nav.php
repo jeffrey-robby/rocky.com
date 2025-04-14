@@ -5,13 +5,13 @@
                      <div class="logo-main ">
                      
                          <img class="logo-normal  "
-                             src="assets/images/logo.png" height="30" alt="logo">
+                             src="../assets/images/logo.png" height="30" alt="logo">
                          <img class="logo-color  "
-                             src="assets/images/logo-white.png" height="30" alt="logo">
+                             src="../assets/images/logo-white.png" height="30" alt="logo">
                          <img class="logo-mini "
-                             src="assets/images/logo-mini.png" alt="logo">
+                             src="../assets/images/logo-mini.png" alt="logo">
                          <img class="logo-mini-white "
-                             src="assets/images/logo-mini-white.png" alt="logo">
+                             src="../assets/images/logo-mini-white.png" alt="logo">
                      
                      </div>
                      <!--logo End-->
