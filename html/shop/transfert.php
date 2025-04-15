@@ -6,7 +6,43 @@ if (isset($_GET['RaddStock'])) {
 
     $request = mysqli_query($database, "SELECT * FROM stocks WHERE id_stocks = '$StockD'");
     $result = mysqli_fetch_assoc($request);
-    $nom_stocks = $result['nom_stocks'];
+    $nom_stocksD = $result['nom_stocks'];
+
+    $request = mysqli_query($database, "SELECT * FROM stocks WHERE id_stocks = '$StockA'");
+    $result = mysqli_fetch_assoc($request);
+    $nom_stocksA = $result['nom_stocks'];
+
+    if (isset($_POST['trans'])) {
+        foreach ($_POST as $idproduits => $quantite) {
+            // Vérifiez que la clé est un ID produit valide (par exemple, exclure le bouton "appro")
+            if (is_numeric($idproduits) && !empty($quantite)) {
+                // Diminuer le stock de départ.
+                $request = mysqli_query($database, "
+                    UPDATE quantite_en_stocks
+                    SET quantite_quantite_en_stocks = quantite_quantite_en_stocks - $quantite
+                    WHERE id_produits = $idproduits AND id_stocks = $StockD
+                ");
+                // Exécutez la requête pour mettre à jour la quantité. si le produit n'existe pas encore dans le stock de destination, il faut l'ajouter.
+                $request = mysqli_query($database, "
+                    SELECT * FROM quantite_en_stocks WHERE id_produits = $idproduits AND id_stocks = $StockA");
+                if (mysqli_num_rows($request) == 0) {
+                    // Si le produit n'existe pas dans le stock de destination, insérez-le.
+                    $request = mysqli_query($database, "
+                        INSERT INTO quantite_en_stocks (id_produits, id_stocks, quantite_quantite_en_stocks, seuil_quantite_en_stocks)
+                        VALUES ($idproduits, $StockA, $quantite, 0)
+                    ");
+                    # code...
+                }else{
+                    $request = mysqli_query($database, "
+                    UPDATE quantite_en_stocks
+                    SET quantite_quantite_en_stocks = quantite_quantite_en_stocks + $quantite
+                    WHERE id_produits = $idproduits AND id_stocks = $StockA");
+
+                }
+                
+            }
+        }
+    }
     
 }else {
     header('Location: ../index.php');
@@ -106,20 +142,20 @@ if (isset($_GET['RaddStock'])) {
         <div class="card">
                 <div class="card-header d-flex justify-content-between">
                      <div class="header-title">
-                        <h4 class="card-title">Approvisionnement : <?php echo $nom_stocks ?></h4>
+                        <h4 class="card-title">Approvisionnement : <?php echo $nom_stocksA ?></h4>
                      </div>
                   </div>
                   <div class="card-body">
                     <form action="" method="post">
-                    <button type="submit" name="appro" class="btn btn-primary">Enregistrer</button>
+                    <button type="submit" name="trans" class="btn btn-primary">Faire le Transfert</button>
 
                         <div class="table-responsive custom-table-search">
                             <table id="input-datatable" class="table" data-toggle="data-table-column-filter">
                                 <thead>
                                     <tr>
                                     <th>Nom</th>                    
-                                    <th>Quantité En stock</th>
-                                    <th>Approvisionner</th>
+                                    <th>Quantité En stock <?php echo $nom_stocksD ?></th>
+                                    <th>Quantité A Transférer <?php echo $nom_stocksA ?></th>
                                     <th>Description</th>
                                     <th>Fournisseur</th>
                                     <th>Contact</th>
@@ -155,33 +191,20 @@ if (isset($_GET['RaddStock'])) {
                                         JOIN 
                                             stocks ON quantite_en_stocks.id_stocks = stocks.id_stocks
                                         WHERE
-                                            stocks.id_stocks = '$id_stocks'
+                                            stocks.id_stocks = '$StockD'
                                         ORDER BY produits.nom_produits
                                         ");
                                 while ($result2 = mysqli_fetch_assoc($request)) {
-                                    echo'
+                                     ?>
                                     <tr>
-                                        <td>'.$result2['nom_produits'].'</td>
-                                        
-                                        ';
-
-                                        if ($result2['quantite_quantite_en_stocks'] <= $result2['seuil_quantite_en_stocks']) {
-                                            echo '
-                                            <td style="background: rgb(249 186 186 / 93%)">'.$result2['quantite_quantite_en_stocks'].'</td>
-                                            ';
-                                            # code...
-                                        }else {
-                                            echo '
-                                            <td>'.$result2['quantite_quantite_en_stocks'].'</td>
-                                            ';
-                                        }
-                                        echo '
-                                        <td><input type="number" name="'.$result2['id_produits'].'" id=""></td>
-                                        <td>'.$result2['description_produits'].'</td>
-                                        <td>'.$result2['nom_fournisseurs'].'</td>
-                                        <td>'.$result2['tel_fournisseurs'].'</td>
+                                        <td><?php echo $result2['nom_produits'] ?></td>
+                                        <td><?php echo $result2['quantite_quantite_en_stocks'] ?></td>
+                                        <td><input type="number" max="<?php echo $result2['quantite_quantite_en_stocks'] ?>" name="<?php echo $result2['id_produits'] ?>" class="form-control" value="" /></td>
+                                        <td><?php echo $result2['description_produits'] ?></td>
+                                        <td><?php echo $result2['nom_fournisseurs'] ?></td>
+                                        <td><?php echo $result2['tel_fournisseurs'] ?></td>
                                     </tr>
-                                    ';
+                                     <?php 
                                     # code...
                                 }
                                 ?>
@@ -191,8 +214,8 @@ if (isset($_GET['RaddStock'])) {
                                 <tfoot>
                                     <tr>
                                     <th title="Nom">Nom</th>                   
-                                    <td title="Quantité En stock">Quantité En stock</td>
-                                    <th title="Approvisionner">Approvisionner</th>
+                                    <td>Quantité En stock <?php echo $nom_stocksD ?></td>
+                                    <td>Quantité En stock <?php echo $nom_stocksA ?></td>
                                     <th title="Description">Description</th>
                                     <th title="Fournisseur">Fournisseur</th>
                                     <th title="Contact">Contact</th>

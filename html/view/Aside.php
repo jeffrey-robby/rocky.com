@@ -284,22 +284,7 @@
                                             <span class="item-name" data-bs-toggle="modal"
                                             data-bs-target=".TransdStock">Transfert de Stockage</span>
                                         </a>
-                                    </li>
-                                    <li class="nav-item iq-drop">
-                                        <a
-                                            class="nav-link "
-                                            aria-current="page" href="../shop/stock.php">
-                                            <i class="icon" data-bs-toggle="tooltip" title="Liste des Categories"
-                                                data-bs-placement="right">
-                                                <i class="ph-duotone ph-list"></i>
-                                            </i>
-                        
-                                            <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
-                                                title="Menu 2" data-bs-placement="right">AF</i>
-                                            <span class="item-name">Historique</span>
-                                        </a>
-                                        
-                                    </li>                           
+                                    </li>                                                      
                                 </ul>
                             </li>
 

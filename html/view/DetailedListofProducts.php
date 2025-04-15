@@ -153,12 +153,12 @@
 
                         if ($result2['quantite_quantite_en_stocks'] <= $result2['seuil_quantite_en_stocks']) {
                             echo '
-                            <td style="background: rgb(249 186 186 / 93%)">'.$result2['quantite_quantite_en_stocks'].'</td>
+                            <td style="background: rgb(249 186 186 / 93%)">'.$result2['quantite_quantite_en_stocks'].': '.$result2['nom_stocks'].'</td>
                             ';
                             # code...
                         }else {
                             echo '
-                            <td>'.$result2['quantite_quantite_en_stocks'].'</td>
+                            <td>'.$result2['quantite_quantite_en_stocks'].': '.$result2['nom_stocks'].'</td>
                             ';
                         }
                         echo '
