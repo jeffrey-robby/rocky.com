@@ -135,18 +135,18 @@ require_once '../ressources/Config.php'
                                         <td><?php echo $result['numero_cni_personnels'] ?></td>
                                         <td>
                                             <div class="d-flex gap-2 align-items-center">
-                                                <a class="btn btn-primary-subtle px-1 py-1 rounded d-flex"
+                                                <!-- <a class="btn btn-primary-subtle px-1 py-1 rounded d-flex"
                                                     data-toggle="tooltip" data-placement="top" title="Add"
                                                     href="user-add.html">
                                                     <i class="ph ph-user-plus"></i>
-                                                </a>
+                                                </a> -->
                                                 <a class="btn btn-warning-subtle px-1 py-1 rounded d-flex"
                                                     data-toggle="tooltip" data-placement="top" title="Edit"
-                                                    href="user-edit.html">
+                                                    href="?ModP=<?php echo $result['id_personnels'] ?>">
                                                     <i class="ph ph-pencil-simple"></i>
                                                 </a>
                                                 <a class="btn btn-danger-subtle px-1 py-1 rounded d-flex"
-                                                    data-toggle="tooltip" data-placement="top" title="Delete" href="#">
+                                                    data-toggle="tooltip" data-placement="top" title="Delete" href="?delP=<?php echo $result['id_personnels'] ?>">
                                                     <i class="ph ph-trash"></i>
                                                 </a>
                                             </div>
