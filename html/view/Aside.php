@@ -280,9 +280,9 @@
                                             </i>
                         
                                             <i class="sidenav-mini-icon" data-bs-toggle="tooltip"
-                                                title="Menu 1" data-bs-placement="right">AJ</i>
+                                                title="Transfert" data-bs-placement="right">AJ</i>
                                             <span class="item-name" data-bs-toggle="modal"
-                                            data-bs-target="TransdStock">Transfert de Stockage</span>
+                                            data-bs-target=".TransdStock">Transfert de Stockage</span>
                                         </a>
                                     </li>
                                     <li class="nav-item iq-drop">
