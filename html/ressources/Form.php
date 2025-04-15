@@ -28,7 +28,6 @@ if (isset($_POST['catStock'])) {
     # code...
 }
 if (isset($_POST['AddProd'])) {
-    print_r($_POST);exit();
      // Informations sur le fichier téléchargé
      $photo = uniqid() . '_' . $_FILES['ProdFile']['name'];
      $verso = uniqid() . '_' . $_FILES['ProdFile2']['name'];
@@ -42,8 +41,8 @@ if (isset($_POST['AddProd'])) {
      move_uploaded_file($versoTemp, $cheminVerso);
 
      // Enregistrer le chemin de l'image dans la base de données
-    $cheminPhotoF = $cheminPhoto;
-    $cheminVersoF = $cheminVerso;
+    $cheminPhotoF = 'assets/images/produits/' . $photo;
+    $cheminVersoF = 'assets/images/produits/' . $verso;
     $nom = trim($_POST['nom']);
     $quantite = trim($_POST['Qt']);
     $seuil = trim($_POST['Scr']);
@@ -52,7 +51,11 @@ if (isset($_POST['AddProd'])) {
     $description = trim($_POST['Desc']);
     $fournisseur = trim( $_POST['Four']);
     $categorie = trim($_POST['Cat']);
-    $stock = trim($_POST['stock']);
+    $stock = trim($_POST['Stock']);
     $unite = trim($_POST['unit']);
+
+    mysqli_query($database, "INSERT INTO produits VALUES (NULL, '$fournisseur', '$categorie','$nom', '$prix', '$prix1', '$cheminPhotoF', '$unite', '$cheminVersoF', '$description', null, null)") or die(mysqli_error($database));
+    $idProd = mysqli_insert_id($database);
+    mysqli_query($database, "INSERT INTO quantite_en_stocks VALUES (NULL, '$stock', '$idProd', '$quantite', '$seuil', null, null)") or die(mysqli_error($database));
     # code...
 }

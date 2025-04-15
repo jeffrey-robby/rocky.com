@@ -25,6 +25,41 @@
   </div>
 </form>
 
+<form action="" method="post">
+  <div class="modal fade RaddStock" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Approvisionner un Stock</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group input-group mb-0 search-input category-search-input">
+                
+                <select name="Stock" id="" class="form-control" required>               
+                  <?php 
+                  $request = mysqli_query($database, "SELECT * FROM stocks ");
+                  while ($result = mysqli_fetch_assoc($request)) {
+                    echo '
+                     <option value="'.$result['id_stocks'].'">'.$result['nom_stocks'].'</option>
+                    ';
+                    # code...
+                  }
+                  ?>
+                </select> 
+
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="submit" name="RaddStock" class="btn btn-success">Allez y</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
 <div class="modal fade addFour" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
@@ -198,9 +233,17 @@
                   </div>               
             </div>
             <div class="col-md-6 position-relative">
-                <label for="validationTooltip0224447" class="form-label">Catégorie</label>
+                <label for="validationTooltip0224447" class="form-label">Stock</label>
                 <select name="Stock" id="" class="form-control" required>               
-                  
+                  <?php 
+                  $request = mysqli_query($database, "SELECT * FROM stocks ");
+                  while ($result = mysqli_fetch_assoc($request)) {
+                    echo '
+                     <option value="'.$result['id_stocks'].'">'.$result['nom_stocks'].'</option>
+                    ';
+                    # code...
+                  }
+                  ?>
                 </select> 
                 <div class="invalid-tooltip">
                   Non Valide!
