@@ -25,7 +25,7 @@
   </div>
 </form>
 
-<form action="" method="post">
+<form action="../shop/approvisionner.php" method="get">
   <div class="modal fade RaddStock" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">

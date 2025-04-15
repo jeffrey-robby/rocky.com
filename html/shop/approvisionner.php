@@ -1,5 +1,27 @@
 <?php 
-require_once '../ressources/Config.php' 
+require_once '../ressources/Config.php' ;
+if (isset($_GET['Stock'])) {
+    $id_stocks = $_GET['Stock'];
+    $request = mysqli_query($database, "SELECT * FROM stocks WHERE id_stocks = '$id_stocks'");
+    $result = mysqli_fetch_assoc($request);
+    $nom_stocks = $result['nom_stocks'];
+    if (isset($_POST['appro'])) {
+        foreach ($_POST as $idproduits => $quantite) {
+            // Vérifiez que la clé est un ID produit valide (par exemple, exclure le bouton "appro")
+            if (is_numeric($idproduits) && !empty($quantite)) {
+                // Exécutez la requête pour mettre à jour la quantité
+                $request = mysqli_query($database, "
+                    UPDATE quantite_en_stocks
+                    SET quantite_quantite_en_stocks = quantite_quantite_en_stocks + $quantite
+                    WHERE id_produits = $idproduits AND id_stocks = $id_stocks
+                ");
+            }
+        }
+    }
+}else {
+    header('Location: ../index.php');
+    exit();
+}
 ?>
 <!doctype html>
 <html lang="en" class="theme-fs-sm" data-bs-theme-color="default" dir="ltr">
@@ -32,7 +54,6 @@ require_once '../ressources/Config.php'
     
     <!-- SwiperSlider css -->
     <link rel="stylesheet" href="../assets/vendor/swiperSlider/swiper.min.css">
-    
     
     
     
@@ -92,59 +113,109 @@ require_once '../ressources/Config.php'
             <!--Nav End-->
         </div>
         <div class="content-inner container-fluid pb-0" id="page_layout"> 
-            <div class="row">
-               <div class="card">
-                  <div class="card-header d-flex justify-content-between">
+        <div class="card">
+                <div class="card-header d-flex justify-content-between">
                      <div class="header-title">
-                        <h4 class="card-title">Fournisseurs</h4>
+                        <h4 class="card-title">Approvisionnement : <?php echo $nom_stocks ?></h4>
                      </div>
                   </div>
                   <div class="card-body">
-                     
-                     <div class="table-responsive custom-table-search">
-                        <table id="datatable" class="table table-striped " data-toggle="data-table">
-                           <thead>
-                              <tr>
-                                 <th>Nom</th>
-                                 <th>Contact</th>
-                                 <th>Adresse</th>
-                                 <th>Operation</th>
-                                 
-                              </tr>
-                           </thead>
-                           <tbody>
-                           <?php 
-                           $request = mysqli_query($database, "SELECT * FROM fournisseurs");
-                           while ($result = mysqli_fetch_assoc($request)) {
-                                 echo '
-                                 <tr>
-                                    <td>'.$result['nom_fournisseurs'].'</td>
-                                    <td>'.$result['tel_fournisseurs'].'</td>
-                                    <td>Edinb'.$result['residence_fournisseurs'].'urgh</td>
-                                    <td><a class="icons-list d-flex align-items-center gap-3" href="?delF='.$result['id_fournisseurs'].'"><i class="fa fa-trash" aria-hidden="true"></i>supprimer</a></td>
+                    <form action="" method="post">
+                    <button type="submit" name="appro" class="btn btn-primary">Enregistrer</button>
+
+                        <div class="table-responsive custom-table-search">
+                            <table id="input-datatable" class="table" data-toggle="data-table-column-filter">
+                                <thead>
+                                    <tr>
+                                    <th>Nom</th>                    
+                                    <th>Quantité En stock</th>
+                                    <th>Approvisionner</th>
+                                    <th>Description</th>
+                                    <th>Fournisseur</th>
+                                    <th>Contact</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php 
+                                    $request = mysqli_query($database, "
+                                            SELECT 
+                                            produits.id_produits,
+                                            produits.id_fournisseurs, 
+                                            fournisseurs.nom_fournisseurs, 
+                                            fournisseurs.tel_fournisseurs, 
+                                            produits.id_categorie_produits, 
+                                            categorie_produits.nom_categorie_produits, 
+                                            produits.nom_produits, 
+                                            produits.unite_produits,
+                                            produits.prix_produits, 
+                                            produits.prix_produits1,
+                                            produits.photo_produits1, 
+                                            produits.description_produits, 
+                                            quantite_en_stocks.quantite_quantite_en_stocks,
+                                            quantite_en_stocks.seuil_quantite_en_stocks,
+                                            stocks.nom_stocks 
+                                        FROM 
+                                            produits 
+                                        JOIN 
+                                            fournisseurs ON produits.id_fournisseurs = fournisseurs.id_fournisseurs 
+                                        JOIN 
+                                            categorie_produits ON produits.id_categorie_produits = categorie_produits.id_categorie_produits 
+                                        JOIN 
+                                            quantite_en_stocks ON produits.id_produits = quantite_en_stocks.id_produits 
+                                        JOIN 
+                                            stocks ON quantite_en_stocks.id_stocks = stocks.id_stocks
+                                        WHERE
+                                            stocks.id_stocks = '$id_stocks'
+                                        ORDER BY produits.nom_produits
+                                        ");
+                                while ($result2 = mysqli_fetch_assoc($request)) {
+                                    echo'
+                                    <tr>
+                                        <td>'.$result2['nom_produits'].'</td>
+                                        
+                                        ';
+
+                                        if ($result2['quantite_quantite_en_stocks'] <= $result2['seuil_quantite_en_stocks']) {
+                                            echo '
+                                            <td style="background: rgb(249 186 186 / 93%)">'.$result2['quantite_quantite_en_stocks'].'</td>
+                                            ';
+                                            # code...
+                                        }else {
+                                            echo '
+                                            <td>'.$result2['quantite_quantite_en_stocks'].'</td>
+                                            ';
+                                        }
+                                        echo '
+                                        <td><input type="number" name="'.$result2['id_produits'].'" id=""></td>
+                                        <td>'.$result2['description_produits'].'</td>
+                                        <td>'.$result2['nom_fournisseurs'].'</td>
+                                        <td>'.$result2['tel_fournisseurs'].'</td>
+                                    </tr>
+                                    ';
+                                    # code...
+                                }
+                                ?>
                                     
-                                 </tr>
-                                 ';
-                                 # code...
-                           }
-                           ?>                     
-                           
-                           </tbody>
-                           <tfoot>
-                              <tr>
-                                 <th>Nom</th>
-                                 <th>Contact</th>
-                                 <th>Adresse</th>
-                                 <th>Operation</th>
-                                 
-                              </tr>
-                           </tfoot>
-                        </table>
-                     </div>
+                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                    <th title="Nom">Nom</th>                   
+                                    <td title="Quantité En stock">Quantité En stock</td>
+                                    <th title="Approvisionner">Approvisionner</th>
+                                    <th title="Description">Description</th>
+                                    <th title="Fournisseur">Fournisseur</th>
+                                    <th title="Contact">Contact</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </form>
+                    
                   </div>
                </div>
-                             
-            </div>        
+       
+  
         <div>
                 
         <!-- Footer Section Start -->
@@ -198,15 +269,12 @@ require_once '../ressources/Config.php'
     
     
     
-    
-    
     <!-- Sweet-alert Script -->
     <script src="../assets/vendor/sweetalert2/dist/sweetalert2.min.js" async></script>
     <script src="../assets/js/plugins/sweet-alert.js" defer></script>
     
     
     <!-- All charts Script -->
-    
     
     
     
@@ -248,6 +316,18 @@ require_once '../ressources/Config.php'
     
     
     <!--Custom js -->
+    <script>
+        $(document).ready(function () {
+            if ($.fn.DataTable.isDataTable('#input-datatable')) {
+                $('#input-datatable').DataTable().destroy();
+            }
+            $('#input-datatable').DataTable({
+                paging: false, // Désactive la pagination
+                searching: true, // Garde la recherche active
+                ordering: true, // Garde le tri actif
+            });
+        });
+    </script>
 </body>
 
 

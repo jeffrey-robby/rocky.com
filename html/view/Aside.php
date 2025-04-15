@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active"
+                        <a class="nav-link"
                             aria-current="page"
                             href="../index.php">
                             <i class="icon" data-bs-toggle="tooltip" title="Home Page"
@@ -51,7 +51,7 @@
                             <span class="item-name">Acceuil</span>
                         </a>
                     </li>
-                    <li class="nav-item iq-drop">
+                    <li class="nav-item iq-drop active">
                         <a class="nav-link" data-bs-toggle="collapse" href="#store"
                             role="button" aria-expanded="false">
                             <i class="icon" data-bs-toggle="tooltip" title="Store"
