@@ -59,3 +59,23 @@ if (isset($_POST['AddProd'])) {
     mysqli_query($database, "INSERT INTO quantite_en_stocks VALUES (NULL, '$stock', '$idProd', '$quantite', '$seuil', null, null)") or die(mysqli_error($database));
     # code...
 }
+if (isset($_POST['addPers'])) {
+    // Informations sur le fichier téléchargé
+   $photo = uniqid() . '_' . $_FILES['img']['name'];
+   $verso = uniqid() . '_' . $_FILES['cnirecto']['name'];
+   $recto = uniqid() . '_' . $_FILES['cniverso']['name'];
+   $photoTemp = $_FILES['img']['tmp_name'];
+   $versoTemp = $_FILES['cnirecto']['tmp_name'];
+   $rectoTemp = $_FILES['cniverso']['tmp_name'];
+
+   // Déplacer le fichier vers le répertoire d'images
+   $cheminPhoto = '../assets/images/personnels/photos/' . $photo;
+   move_uploaded_file($photoTemp, $cheminPhoto);
+   $cheminVerso = '../assets/images/personnels/cni_vesro/' . $verso;
+   move_uploaded_file($versoTemp, $cheminVerso);
+   $cheminRecto = '../assets/images/personnels/cni_recto/' . $recto;
+   move_uploaded_file($rectoTemp, $cheminRecto);
+
+   print_r($_FILES);exit();
+    # code...
+}

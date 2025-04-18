@@ -155,6 +155,92 @@
   </div>
 </div>
 
+<div class="modal fade addPers" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter un nouveau personnel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="card-body">
+              <form class="row g-3 needs-validation" method="post" enctype="multipart/form-data" novalidate>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltip01" class="form-label">Nom</label>
+                    <input type="text" name="nom" class="form-control" id="validationTooltip01" value="Personnel 1" required>
+                    <div class="valid-tooltip">
+                      Bon!
+                    </div>
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltip01" class="form-label">Prénom</label>
+                    <input type="text" name="prenom" class="form-control" id="validationTooltip01">                   
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltip02" class="form-label">Date de Naissance</label>
+                    <input type="date" name="dateN" class="form-control" id="validationTooltip02" required>
+                    <div class="invalid-tooltip">
+                      Entrer une date!
+                    </div>
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="zerge" class="form-label">Post</label>
+                    <select name="Poste" id="" class="form-control">
+                      <option value="P">Proprietaire</option>
+                      <option value="V">Vendeur</option>
+                    </select>                   
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltip02" class="form-label">Téléphone</label>
+                    <input type="tel" name="telN" class="form-control" id="validationTooltip02" min="9" placeholder="+237..." required>
+                    <div class="invalid-tooltip">
+                      Invalide!
+                    </div>
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="validationTooltip02" class="form-label">Email</label>
+                    <input type="mail" name="mail" class="form-control" id="validationTooltip02">                   
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="zerge" class="form-label">Sexe</label>
+                    <select name="Sexe" id="" class="form-control">
+                      <option value="M">Masculin</option>
+                      <option value="F">Feminin</option>
+                    </select>                   
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="jkhgf" class="form-label">Adresse</label>
+                    <input type="text" name="adresse" class="form-control" id="jkhgf">                   
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="zertygfdfg" class="form-label">Numéro CNI</label>
+                    <input type="text" name="cni" class="form-control" id="zertygfdfg" required>                   
+                </div>
+                
+                <div class="col-md-6 position-relative">
+                    <label for="klkyjghf" class="form-label">Image</label>
+                    <input type="file" name="img" class="form-control" id="klkyjghf" >                   
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="klkyjghf" class="form-label">CNI recto</label>
+                    <input type="file" name="cnirecto" class="form-control" id="klkyjghf" >                   
+                </div>
+                <div class="col-md-6 position-relative">
+                    <label for="klkyjghf" class="form-label">CNI verso</label>
+                    <input type="file" name="cniverso" class="form-control" id="klkyjghf" >                   
+                </div>
+                
+                <div class="col-12">
+                    <button name="addPers" class="btn btn-primary mt-5" type="submit">Ajouter</button>
+                </div>
+              </form>
+          </div>
+      </div>        
+    </div>
+  </div>
+</div>
+
 <form action="" method="post">
   <div class="modal fade addStock" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
