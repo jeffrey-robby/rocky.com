@@ -142,7 +142,7 @@ require_once '../ressources/Config.php'
                                                 </a> -->
                                                 <a class="btn btn-warning-subtle px-1 py-1 rounded d-flex"
                                                     data-toggle="tooltip" data-placement="top" title="Edit"
-                                                    href="?ModP=<?php echo $result['id_personnels'] ?>">
+                                                    href="../shop/personnel_edit.php?ModP=<?php echo $result['id_personnels'] ?>">
                                                     <i class="ph ph-pencil-simple"></i>
                                                 </a>
                                                 <a class="btn btn-danger-subtle px-1 py-1 rounded d-flex"

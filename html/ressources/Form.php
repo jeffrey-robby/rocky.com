@@ -111,3 +111,18 @@ if (isset($_GET['delP'])) {
     mysqli_query($database, "DELETE FROM personnels WHERE id_personnels = '$idS' ") or die(mysqli_error($database));
     # code...
 }
+if (isset($_GET['ModP'])) {
+    echo $idpersonnel = $_GET['ModP'];
+    $request = mysqli_query($database, "SELECT * FROM personnels WHERE id_personnels = '$idpersonnel' ") or die(mysqli_error($database));
+    $row = mysqli_fetch_array($request);
+    $nom = $row['nom_personnels'];
+    $prenom = $row['prenom_personnels'];
+    $dateN = $row['date_de_naissance_personnels'];
+    $poste_personnels = $row['poste_personnels'];
+    $tel_personnels = $row['tel_personnels'];
+    $sexe_personnels = $row['sexe_personnels'];
+    $residence_personnels = $row['residence_personnels'];
+    $image_personnels = $row['image_personnels'];
+    $numero_cni_personnels = $row['numero_cni_personnels'];
+    # code...
+}
