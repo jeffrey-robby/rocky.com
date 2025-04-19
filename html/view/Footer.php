@@ -187,8 +187,8 @@
                 <div class="col-md-6 position-relative">
                     <label for="zerge" class="form-label">Post</label>
                     <select name="Poste" id="" class="form-control">
-                      <option value="P">Proprietaire</option>
-                      <option value="V">Vendeur</option>
+                      <option value="Proprietaire">Proprietaire</option>
+                      <option value="Vendeur">Vendeur</option>
                     </select>                   
                 </div>
                 <div class="col-md-6 position-relative">
@@ -205,8 +205,8 @@
                 <div class="col-md-6 position-relative">
                     <label for="zerge" class="form-label">Sexe</label>
                     <select name="Sexe" id="" class="form-control">
-                      <option value="M">Masculin</option>
-                      <option value="F">Feminin</option>
+                      <option value="Masculin">Masculin</option>
+                      <option value="Feminin">Feminin</option>
                     </select>                   
                 </div>
                 <div class="col-md-6 position-relative">

@@ -76,6 +76,38 @@ if (isset($_POST['addPers'])) {
    $cheminRecto = '../assets/images/personnels/cni_recto/' . $recto;
    move_uploaded_file($rectoTemp, $cheminRecto);
 
-   print_r($_FILES);exit();
+   $nom = trim($_POST['nom']);
+   $prenom = trim($_POST['prenom']);
+   $dateN = trim($_POST['dateN']);
+   $email = trim($_POST['mail']);
+   $telN = trim( $_POST['telN']);
+   $poste = trim($_POST['Poste']);
+   $sexe = trim($_POST['Sexe']);
+   $cni = trim($_POST['cni']);
+   $adresse = trim($_POST['adresse']);
+
+   mysqli_query($database, "INSERT INTO personnels VALUES (
+   NULL, 
+   '$nom', 
+   '$prenom', 
+   '$dateN', 
+   '$poste', 
+   '$poste', 
+   '$telN', 
+   '$email', 
+   '$sexe', 
+   '$adresse', 
+   'assets/images/personnels/photos/$photo', 
+   '$cni',
+   'assets/images/personnels/cni_vesro/$verso', 
+   '/assets/images/personnels/cni_recto/$recto', 
+   NOW(), 
+   NOW())") 
+   or die(mysqli_error($database));	
+    # code...
+}
+if (isset($_GET['delP'])) {
+    $idS = $_GET['delP'];	
+    mysqli_query($database, "DELETE FROM personnels WHERE id_personnels = '$idS' ") or die(mysqli_error($database));
     # code...
 }
